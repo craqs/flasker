@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flasker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flasker
+  template:
+    metadata:
+      labels:
+        app: flasker
+    spec:
+      containers:
+      - name: flasker
+        image: hub.freshmail.pl/spinnaker/flasker
+        ports:
+        - containerPort: 5000
